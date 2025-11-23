@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Паркетная Фабрика - Массивная доска из лиственницы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .wood-pattern {
+            background-color: #fdf6e3;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4a373' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516455590571-18259e508e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal.flex {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Loading shimmer effect */
+        .shimmer {
+            background: #f6f7f8;
+            background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+            background-repeat: no-repeat;
+            background-size: 800px 104px;
+            display: inline-block;
+            position: relative;
+
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: placeholderShimmer;
+            animation-timing-function: linear;
+        }
+
+        @keyframes placeholderShimmer {
+            0% {
+                background-position: -468px 0;
+            }
+
+            100% {
+                background-position: 468px 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-200">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="trees" class="text-amber-700 w-8 h-8"></i>
+                <div class="leading-tight">
+                    <div class="font-bold text-lg text-stone-900 uppercase tracking-wide">Паркетная Фабрика</div>
+                    <div class="text-xs text-stone-500">ООО "АБСОЛЮТ"</div>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600">
+                <a href="#catalog" class="hover:text-amber-700 transition">Каталог</a>
+                <a href="#benefits" class="hover:text-amber-700 transition">Преимущества</a>
+                <a href="#prices" class="hover:text-amber-700 transition">Цены</a>
+                <a href="#contacts" class="hover:text-amber-700 transition">Контакты</a>
+            </div>
+
+            <a href="tel:+79139162888"
+                class="flex items-center gap-2 text-amber-800 font-bold hover:text-amber-600 transition">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <span>+7 (913) 916-28-88</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-[600px] flex items-center justify-center text-center text-white px-4 relative">
+
+
+        <div class="max-w-4xl animate-fade-in-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Массивная доска из <br />сибирской лиственницы
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light text-amber-100">
+                Идеальная геометрия. Японское оборудование. <br /> Более 20 стильных оттенков.
+            </p>
+            <div
+                class="inline-block bg-amber-600/90 backdrop-blur-sm px-8 py-4 rounded-full text-2xl font-bold mb-8 shadow-lg border border-amber-500">
+                от 3500 руб./м²
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#catalog"
+                    class="bg-white text-stone-900 px-8 py-4 rounded-lg font-bold hover:bg-amber-50 transition transform hover:-translate-y-1 shadow-xl min-w-[200px]">
+                    Выбрать цвет
+                </a>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-3xl font-bold text-stone-800 mb-6">Уважаемые клиенты!</h2>
+            <p class="text-lg text-stone-600 leading-relaxed">
+                Мы рады предложить массивную доску с идеальной геометрией, произведённую с применением передового
+                японского оборудования.
+                Высокое качество обработки и долговечность делают нашу продукцию идеальным выбором для вашего интерьера.
+            </p>
+        </div>
+    </section>
+
+    <!-- Hits Catalog -->
+    <section id="catalog" class="py-16 wood-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-amber-700 font-bold tracking-widest uppercase text-sm">Наши лучшие предложения</span>
+                <h2 class="text-4xl font-bold text-stone-900 mt-2">Хиты продаж</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Product Card: Табако -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Табако">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Табако/Tabako_1.jpg" alt="Табако"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Табако/Tabako_2.jpg" alt="Табако"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Табако/Tabako_3.jpg" alt="Табако"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Хит</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Табако</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-sm line-through text-stone-400">5000 ₽</span>
+                                <div class="text-2xl font-bold text-amber-700">3500 ₽</div>
+                            </div>
+                            <button onclick="openModal('Табако')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Арктик -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Арктик">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Арктик/Arktik_1.jpg" alt="Арктик"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Арктик/Arktik_2.jpg" alt="Арктик"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Арктик/Arktik_3.jpg" alt="Арктик"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Акция</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Арктик</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-sm line-through text-stone-400">4000 ₽</span>
+                                <div class="text-2xl font-bold text-amber-700">3300 ₽</div>
+                            </div>
+                            <button onclick="openModal('Арктик')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Аделина -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Аделина">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Аделина/Adelina_1.jpg" alt="Аделина"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Аделина/Adelina_2.jpg" alt="Аделина"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Аделина/Adelina_3.jpg" alt="Аделина"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Хит</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Аделина</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Аделина')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Капучино -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Капучино">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Капучино/Kapuchino_1.jpg" alt="Капучино"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Капучино/Kapuchino_2.jpg" alt="Капучино"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Капучино/Kapuchino_3.jpg" alt="Капучино"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Хит</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Капучино</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Капучино')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Мокко -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Мокко">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мокко/Mokko_1.jpg" alt="Мокко"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мокко/Mokko_2.jpg" alt="Мокко"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мокко/Mokko_3.jpg" alt="Мокко"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Хит</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Мокко</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Мокко')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Орех -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Орех">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Орех/Oreh_1.jpg" alt="Орех" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Орех/Oreh_2.jpg" alt="Орех" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Орех/Oreh_3.jpg" alt="Орех" class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <div
+                            class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase z-20">
+                            Акция</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Орех</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-sm line-through text-stone-400">5000 ₽</span>
+                                <div class="text-2xl font-bold text-amber-700">3300 ₽</div>
+                            </div>
+                            <button onclick="openModal('Орех')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Грация -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Грация">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Грация/Gratsiya_1.jpg" alt="Грация"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Грация/Gratsiya_2.jpg" alt="Грация"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Грация/Gratsiya_3.jpg" alt="Грация"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Грация</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Грация')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Доменика -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Доменика">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Доменика/Domenika_1.jpg" alt="Доменика"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Доменика/Domenika_2.jpg" alt="Доменика"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Доменика/Domenika_3.jpg" alt="Доменика"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Доменика</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Доменика')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Летиция -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Летиция">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Летиция/Letitsiya_1.jpg" alt="Летиция"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Летиция/Letitsiya_2.jpg" alt="Летиция"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Летиция/Letitsiya_3.jpg" alt="Летиция"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Летиция</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Летиция')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Натали -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Натали">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Натали/Natali_1.jpg" alt="Натали"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Натали/Natali_2.jpg" alt="Натали"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Натали/Natali_3.jpg" alt="Натали"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Натали</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Натали')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Пальмира -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Пальмира">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Пальмира/Palmira_1.jpg" alt="Пальмира"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Пальмира/Palmira_2.jpg" alt="Пальмира"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Пальмира/Palmira_3.jpg" alt="Пальмира"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Пальмира</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3650 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Пальмира')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Махагон -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Махагон">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Махагон/Mahagon_1.jpg" alt="Махагон"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Махагон/Mahagon_2.jpg" alt="Махагон"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Махагон/Mahagon_3.jpg" alt="Махагон"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Махагон</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Махагон')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Венге -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Венге">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Венге/Venge_1.jpg" alt="Венге"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Венге/Venge_2.jpg" alt="Венге"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Венге/Venge_3.jpg" alt="Венге"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Венге</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Венге')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Маура -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Маура">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Маура/Maura_1.jpg" alt="Маура"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Маура/Maura_2.jpg" alt="Маура"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Маура/Maura_3.jpg" alt="Маура"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Маура</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Маура')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Мербау -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Мербау">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мербау/Merbau_1.jpg" alt="Мербау"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мербау/Merbau_2.jpg" alt="Мербау"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мербау/Merbau_3.jpg" alt="Мербау"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Мербау</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Мербау')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Мирелла -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Мирелла">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мирелла/Mirella_1.jpg" alt="Мирелла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мирелла/Mirella_2.jpg" alt="Мирелла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Мирелла/Mirella_3.jpg" alt="Мирелла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Мирелла</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Мирелла')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Ноэми -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Ноэми">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Ноэми/Noemi_1.jpg" alt="Ноэми"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Ноэми/Noemi_2.jpg" alt="Ноэми"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Ноэми/Noemi_3.jpg" alt="Ноэми"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Ноэми</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Ноэми')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Перла -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Перла">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Перла/Perla_1.jpg" alt="Перла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Перла/Perla_2.jpg" alt="Перла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Перла/Perla_3.jpg" alt="Перла"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Перла</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Перла')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Розэбель -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Розэбель">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Розэбель/Rozebel_1.jpg" alt="Розэбель"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Розэбель/Rozebel_2.jpg" alt="Розэбель"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Розэбель/Rozebel_3.jpg" alt="Розэбель"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Розэбель</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Розэбель')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card: Тониа -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+
+                    <div class="relative h-64 bg-stone-300 group/slider">
+                        <div class="carousel flex h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+                            id="carousel-Тониа">
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Тониа/Tonia_1.jpg" alt="Тониа"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Тониа/Tonia_2.jpg" alt="Тониа"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="min-w-full h-full snap-center relative">
+                                <img src="./Фото паркет/Тониа/Tonia_3.jpg" alt="Тониа"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+
+                        <!-- Navigation Arrows (visible on hover) -->
+                        <button onclick="scrollCarousel(this, -1)"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="scrollCarousel(this, 1)"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-stone-800 p-1 rounded-full opacity-0 group-hover/slider:opacity-100 transition shadow-md z-10">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">Тониа</h3>
+                        <p class="text-stone-500 text-sm mb-4">Сибирская лиственница</p>
+
+                        <div class="space-y-2 text-sm text-stone-600 mb-6">
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Покрытие:</span> <span class="font-medium">Масло / УФ-лак</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Толщина:</span> <span class="font-medium">15 мм</span>
+                            </div>
+                            <div class="flex justify-between border-b border-stone-100 pb-1">
+                                <span>Ширина:</span> <span class="font-medium">120 мм</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="text-2xl font-bold text-amber-700">3500 ₽<span
+                                    class="text-sm font-normal text-stone-400">/м²</span></div>
+                            <button onclick="openModal('Тониа')"
+                                class="bg-stone-900 text-white px-4 py-2 rounded hover:bg-amber-700 transition text-sm font-medium">Заказать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-stone-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Почему выбирают сибирскую лиственницу?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-stone-800 p-8 rounded-lg text-center border border-stone-700 hover:border-amber-600 transition">
+                    <div class="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Экологичность</h3>
+                    <p class="text-stone-400 text-sm">Натуральный материал с текстурой дерева. Создает здоровый
+                        микроклимат в помещении.</p>
+                </div>
+
+                <div
+                    class="bg-stone-800 p-8 rounded-lg text-center border border-stone-700 hover:border-amber-600 transition">
+                    <div class="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Долговечность</h3>
+                    <p class="text-stone-400 text-sm">Не склеенная, а цельная доска. Срок службы от 50 до 100 лет при
+                        должном уходе.</p>
+                </div>
+
+                <div
+                    class="bg-stone-800 p-8 rounded-lg text-center border border-stone-700 hover:border-amber-600 transition">
+                    <div class="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="droplets" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Влагостойкость</h3>
+                    <p class="text-stone-400 text-sm">Сибирская лиственница известна своей невероятной устойчивостью к
+                        влаге и гниению.</p>
+                </div>
+
+                <div
+                    class="bg-stone-800 p-8 rounded-lg text-center border border-stone-700 hover:border-amber-600 transition">
+                    <div class="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="package-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Готовность</h3>
+                    <p class="text-stone-400 text-sm">Доставляем продукцию надежно упакованной и полностью готовой к
+                        укладке.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characteristics & Price List -->
+    <section id="prices" class="py-16 bg-white">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row gap-12">
+
+            <!-- Specs -->
+            <div class="lg:w-1/3">
+                <h3 class="text-2xl font-bold mb-6 text-stone-800 border-l-4 border-amber-600 pl-4">Характеристики</h3>
+                <div class="bg-stone-50 p-6 rounded-xl space-y-4 shadow-sm">
+                    <div>
+                        <span class="block text-xs font-bold text-stone-500 uppercase">Дерево</span>
+                        <span class="text-lg">Сибирская лиственница</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-stone-500 uppercase">Тип соединения</span>
+                        <span class="text-lg">Шип-паз</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-stone-500 uppercase">Покрытие</span>
+                        <span class="text-lg">Масло / Лак (одноцветное или двухцветное)</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-stone-500 uppercase">Размеры</span>
+                        <ul class="list-disc list-inside text-stone-700 mt-1">
+                            <li>Длина: 607, 910, 1214, 1820 мм</li>
+                            <li>Ширина: 120 мм</li>
+                            <li>Толщина: 15 мм</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200">
+                        <span class="block text-xs font-bold text-stone-500 uppercase">В упаковке</span>
+                        <span class="text-lg">2.184 м²</span>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-amber-50 rounded-xl border border-amber-100">
+                    <h4 class="font-bold text-amber-900 mb-2">Варианты покрытия:</h4>
+                    <p class="text-sm mb-3"><strong class="text-amber-800">Масло:</strong> Подчеркивает естественную
+                        текстуру и сохраняет природную красоту.</p>
+                    <p class="text-sm"><strong class="text-amber-800">Лак:</strong> Создает гладкую поверхность и
+                        придает блеск.</p>
+                </div>
+            </div>
+
+            <!-- Price Table -->
+            <div class="lg:w-2/3">
+                <h3 class="text-2xl font-bold mb-6 text-stone-800 border-l-4 border-amber-600 pl-4">Полный прайс-лист
+                </h3>
+                <div class="overflow-x-auto bg-white rounded-xl shadow border border-stone-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-stone-100 text-stone-600 text-sm uppercase tracking-wider">
+                                <th class="p-4 font-semibold">Название</th>
+                                <th class="p-4 font-semibold text-right">Цена (руб/м²)</th>
+                                <th class="p-4"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-100 text-stone-800">
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Аделина</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Аделина')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Арктик</td>
+                                <td class="p-4 text-right font-bold">3300 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Арктик')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Венге</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Венге')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Грация</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Грация')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Доменика</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Доменика')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Капучино</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Капучино')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Летиция</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Летиция')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Маура</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Маура')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Махагон</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Махагон')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Мербау</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Мербау')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Мирелла</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Мирелла')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Мокко</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Мокко')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Натали</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Натали')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Ноэми</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Ноэми')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Орех</td>
+                                <td class="p-4 text-right font-bold">3300 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Орех')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Пальмира</td>
+                                <td class="p-4 text-right font-bold">3650 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Пальмира')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Перла</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Перла')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Розэбель</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Розэбель')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Табако</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Табако')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                            <tr class="hover:bg-amber-50 transition">
+                                <td class="p-4 font-medium">Тониа</td>
+                                <td class="p-4 text-right font-bold">3500 ₽</td>
+                                <td class="p-4 text-center"><button onclick="openModal('Тониа')"
+                                        class="text-amber-600 hover:underline text-sm">Заказать</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contacts" class="bg-stone-900 text-stone-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-6 font-serif">Паркетная Фабрика</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-amber-600 flex-shrink-0 mt-1"></i>
+                            <span>ООО "АБСОЛЮТ"<br>ИНН 5404071140</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-amber-600 flex-shrink-0"></i>
+                            <a href="tel:+79139162888" class="hover:text-white">+7 (913) 916-28-88</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="text-amber-600 flex-shrink-0"></i>
+                            <a href="mailto:ab130@list.ru" class="hover:text-white">ab130@list.ru</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="lg:col-span-2 bg-stone-800 p-8 rounded-xl border border-stone-700">
+                    <h3 class="text-2xl font-bold text-white mb-4">Остались вопросы?</h3>
+                    <p class="mb-6">Оставьте заявку, и мы перезвоним вам для консультации или оформления заказа.</p>
+
+                    <form class="grid grid-cols-1 md:grid-cols-3 gap-4"
+                        onsubmit="event.preventDefault(); alert('Ваша заявка принята! Мы свяжемся с вами в ближайшее время.');">
+                        <input type="text" placeholder="Ваше имя"
+                            class="bg-stone-900 border border-stone-600 text-white px-4 py-3 rounded focus:outline-none focus:border-amber-600">
+                        <input type="tel" placeholder="+7 (___) ___-__-__"
+                            class="bg-stone-900 border border-stone-600 text-white px-4 py-3 rounded focus:outline-none focus:border-amber-600">
+                        <button type="submit"
+                            class="bg-amber-700 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded transition">Отправить
+                            заявку</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="border-t border-stone-800 mt-12 pt-8 text-center text-sm text-stone-500">
+                &copy; 2024 Паркетная Фабрика. Все права защищены. Политика конфиденциальности.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="modal"
+        class="modal hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md relative overflow-hidden">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="bg-amber-600 p-6">
+                <h3 class="text-xl font-bold text-white">Оформление заказа</h3>
+                <p class="text-amber-100 text-sm mt-1">Интересует: <span id="modal-product"
+                        class="font-bold underline">Продукция</span></p>
+            </div>
+
+            <div class="p-6">
+                <form class="space-y-4"
+                    onsubmit="event.preventDefault(); closeModal(); alert('Спасибо! Менеджер свяжется с вами.');">
+                    <div>
+                        <label class="block text-sm font-medium text-stone-700 mb-1">Имя</label>
+                        <input type="text" required
+                            class="w-full border border-stone-300 rounded px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-stone-700 mb-1">Телефон</label>
+                        <input type="tel" required
+                            class="w-full border border-stone-300 rounded px-3 py-2 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-stone-700 mb-1">Комментарий (площадь,
+                            вопросы)</label>
+                        <textarea
+                            class="w-full border border-stone-300 rounded px-3 py-2 h-24 focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-stone-900 text-white font-bold py-3 rounded hover:bg-amber-700 transition">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const apiKey = ""; // API Key injected by environment
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        const modalProductSpan = document.getElementById('modal-product');
+
+
+        function openModal(productName) {
+            modalProductSpan.textContent = productName;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('flex');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.remove('flex');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+
+
+        // Close modals on click outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+
+        });
+
+
+
+
+        function scrollCarousel(button, direction) {
+            const container = button.parentElement.querySelector('.carousel');
+            const scrollAmount = container.clientWidth;
+            container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
