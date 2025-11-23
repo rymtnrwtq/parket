@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Animations - Keyframes and Animation Definitions
+   ========================================================================== */
+
+/* Hero Background Zoom Animation */
+@keyframes heroZoom {
+    0% {
+        background-size: 100%;
+    }
+
+    100% {
+        background-size: 110%;
+    }
+}
+
+/* Shimmer Loading Animation */
+@keyframes placeholderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}

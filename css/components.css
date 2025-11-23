@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Components - Reusable UI Components
+   ========================================================================== */
+
+/* Wood Pattern Background */
+.wood-pattern {
+    background-color: #fafaf9;
+    background-image: radial-gradient(#e7e5e4 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Hero Background */
+.hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516455590571-18259e508e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    animation: heroZoom 20s infinite alternate;
+}
+
+/* Modal Transitions */
+.modal-transition {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-transition.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Loading Shimmer Effect */
+.shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear;
+}

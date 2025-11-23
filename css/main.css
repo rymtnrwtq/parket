@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Main CSS - Imports all modular CSS files
+   ========================================================================== */
+
+/* Base styles - Typography and global styles */
+@import url('./base.css');
+
+/* Components - Reusable UI components */
+@import url('./components.css');
+
+/* Animations - Keyframes and animation definitions */
+@import url('./animations.css');
+
+/* Utilities - Helper classes */
+@import url('./utilities.css');
