@@ -72,13 +72,28 @@
                     <i data-lucide="phone" class="w-4 h-4"></i>
                     <span class="hidden sm:inline">+7 (913) 916-28-88</span>
                 </a>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-stone-800 hover:text-amber-700 transition">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-stone-100 absolute w-full left-0 top-full shadow-lg">
+            <div class="flex flex-col p-4 gap-4 text-sm font-medium text-stone-600">
+                <a href="#catalog" class="hover:text-amber-700 transition" onclick="toggleMobileMenu()">Каталог</a>
+                <a href="#benefits" class="hover:text-amber-700 transition"
+                    onclick="toggleMobileMenu()">Преимущества</a>
+                <a href="#prices" class="hover:text-amber-700 transition" onclick="toggleMobileMenu()">Цены</a>
+                <a href="#contacts" class="hover:text-amber-700 transition" onclick="toggleMobileMenu()">Контакты</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section
-        class="hero-bg h-[700px] flex items-center justify-center text-center text-white px-4 relative overflow-hidden">
+        class="hero-bg min-h-[700px] flex items-center justify-center text-center text-white px-4 relative overflow-hidden py-20">
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none">
         </div>
 
@@ -98,7 +113,7 @@
                 </a>
                 <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})"
                     class="bg-white/10 backdrop-blur-md text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/20 transition transform hover:-translate-y-1 shadow-xl border border-white/30">
-                    Рассчитать стоимость
+                    Оставить заявку
                 </button>
             </div>
 
@@ -1488,7 +1503,7 @@
                 <h3 class="text-3xl font-bold mb-8 text-stone-900 font-serif border-l-4 border-amber-600 pl-6">
                     Полный
                     прайс-лист</h3>
-                <div class="overflow-hidden bg-white rounded-2xl shadow-xl border border-stone-100">
+                <div class="overflow-hidden overflow-x-auto bg-white rounded-2xl shadow-xl border border-stone-100">
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-stone-900 text-white text-sm uppercase tracking-wider">
@@ -1723,7 +1738,7 @@
     <div id="modal"
         class="modal-transition hidden fixed inset-0 z-50 flex items-center justify-center bg-stone-900/80 backdrop-blur-sm p-4">
         <div
-            class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden transform transition-all scale-100">
+            class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden transform transition-all scale-100 m-4">
             <button onclick="closeModal()"
                 class="absolute top-4 right-4 text-white/80 hover:text-white z-10 transition">
                 <i data-lucide="x" class="w-6 h-6"></i>
@@ -1871,6 +1886,11 @@
                 // Normal scroll
                 container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
             }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
     </script>
 </body>
